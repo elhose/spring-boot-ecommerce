@@ -12,6 +12,7 @@ public class ProductNames {
     public static final String UNITS_IN_STOCK = "units_in_stock";
     public static final String DATE_CREATED = "date_created";
     public static final String LAST_UPDATED = "last_updated";
+    public static final String CATEGORY_ID = "category_id";
 
     private ProductNames() {
     }
