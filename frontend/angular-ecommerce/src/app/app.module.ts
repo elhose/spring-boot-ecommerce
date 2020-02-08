@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component'; // import for productListComponent
-import { HttpClientModule } from '@angular/common/http';  //import for httpModule, to access web
+import { HttpClientModule } from '@angular/common/http';  // import for httpModule, to access web
 import { ProductService } from './services/product.service';
 
 import { Routes, RouterModule } from '@angular/router';
-import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component'; //import for routing
+import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { SearchComponent } from './components/search/search.component'; // import for routing
 
 // DEFINE ROUTING
 const routes: Routes = [
+  { path: 'search/:keyword', component: ProductListComponent},
   { path: 'category/:id', component: ProductListComponent },
   { path: 'category', component: ProductListComponent },
   { path: 'products', component: ProductListComponent },
@@ -22,14 +24,15 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    SearchComponent
   ],
   imports: [
-    RouterModule.forRoot(routes), //turn routing on
+    RouterModule.forRoot(routes), // turn routing on
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [ProductService], //add here service
-  bootstrap: [AppComponent] //add bootsrtrap
+  providers: [ProductService], // add here service
+  bootstrap: [AppComponent] // add bootsrtrap
 })
 export class AppModule { }

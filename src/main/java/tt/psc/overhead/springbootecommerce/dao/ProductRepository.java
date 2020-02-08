@@ -11,5 +11,6 @@ import tt.psc.overhead.springbootecommerce.entity.Product;
 @CrossOrigin("http://localhost:4200") //so this repo can access this site
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-    Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
+    Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable); // find products by category ID
+    Page<Product> findByNameContaining(@RequestParam("name") String name, Pageable pageable); // search  products by name
 }

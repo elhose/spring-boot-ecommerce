@@ -21,15 +21,23 @@ export class ProductService {
     // @TODO: need to build URL based on category ID and call it
     const searchURL = `${this.baseURL}/search/findByCategoryId?id=${categoryId}`;
 
-    return this.httpClient.get<GetResponseProducts>(searchURL).pipe(
-      map(response => response._embedded.products)
-    );
+    return this.getProducts(searchURL);
+  }
+
+  private getProducts(url: string): Observable<Product[]> {
+    return this.httpClient.get<GetResponseProducts>(url).pipe(map(response => response._embedded.products));
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
     return this.httpClient.get<GetResponseProductCategory>(this.categoryURL).pipe(
       map(response => response._embedded.productCategory)
     );
+  }
+
+  searchProducts(theKeyword: string): Observable<Product[]> {
+    const searchByKeyword = `${this.baseURL}/search/findByNameContaining?name=${theKeyword}`;
+
+    return this.getProducts(searchByKeyword);
   }
 }
 
