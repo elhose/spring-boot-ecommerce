@@ -6,7 +6,8 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { HttpClientModule } from '@angular/common/http';  //import for httpModule, to access web
 import { ProductService } from './services/product.service';
 
-import { Routes, RouterModule } from '@angular/router'; //import for routing
+import { Routes, RouterModule } from '@angular/router';
+import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component'; //import for routing
 
 // DEFINE ROUTING
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductCategoryMenuComponent
   ],
   imports: [
     RouterModule.forRoot(routes), //turn routing on
